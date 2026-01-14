@@ -11,7 +11,6 @@ This is a simple password manager that:
 import os
 import json
 import getpass
-import hashlib
 import base64
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes

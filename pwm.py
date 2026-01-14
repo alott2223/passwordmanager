@@ -45,8 +45,15 @@ def main():
         command = sys.argv[1].lower()
         
         if command == 'generate' or command == 'gen':
-            count = int(sys.argv[2]) if len(sys.argv) > 2 else 1
-            generate_only(count)
+            try:
+                count = int(sys.argv[2]) if len(sys.argv) > 2 else 1
+                if count < 1:
+                    print("Error: Count must be a positive integer")
+                    sys.exit(1)
+                generate_only(count)
+            except ValueError:
+                print(f"Error: Invalid count value '{sys.argv[2]}'. Must be an integer.")
+                sys.exit(1)
         elif command == 'info':
             show_info()
         elif command == 'help' or command == '--help' or command == '-h':
